@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#"
+     xml:base="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-3="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_motherboard -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_motherboard">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_processor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_processor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_processor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_processor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#compatibility_for_processor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#more_efficient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#more_efficient">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#more_productive -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#more_productive">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#price -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#price"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#PC"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#RAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Socket"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asrock_h470m -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asrock_h470m">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5799</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asrock_z790_pro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asrock_z790_pro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24269</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asus_prime_b550_plus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asus_prime_b550_plus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13190</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asus_prime_b650_plus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#asus_prime_b650_plus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25144</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#biostar_b560mh_e -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#biostar_b560mh_e">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8299</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#gigabyte_b760m_ds3h -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#gigabyte_b760m_ds3h">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16931</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#gigabyte_h470m -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#gigabyte_h470m">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6199</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_11600k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_11600k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">26159</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_14600k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_14600k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_11600k"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_11700k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">36720</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_11700k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_11700k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_11600k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">36530</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_14700k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_14700k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_14600k"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i9_11900k"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_7800x"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">46867</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i9_11900k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i9_11900k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_11700k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35000</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i9_14900k -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i9_14900k">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_7900x"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_14700k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">67160</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_a520m -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_a520m">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6390</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_b650m_a -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_b650m_a">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18150</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_h510_b -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_h510_b">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1200"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5999</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_h610M_e -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_h610M_e">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7175</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_z690_p -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#msi_pro_z690_p">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Motherboard"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <compatibility_for_motherboard rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#LGA_1700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">205606</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7700 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7700">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59990</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7800 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7800">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">71337</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7900 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7900">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7800"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4080"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">102999</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4070 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4070">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7700"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">98990</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4080 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4080">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4070"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">149900</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4090 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4090">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Graphics_Card"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#radeon_rx_7900"/>
+        <more_efficient rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#rtx_4080"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">227990</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_5600x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_5600x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_11600k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18099</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_7600x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_7600x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i5_14600k"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_5600x"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">27990</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_5800x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_5800x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_5600x"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24599</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_7800x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_7800x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_5_7600x"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_5800x"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_5900x"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">43485</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_5900x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_5900x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM4"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR4"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#i7_11700k"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">31000</price>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_7900x -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_7900x">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#Processor"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#AM5"/>
+        <compatibility_for_processor rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#DDR5"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_7_7800x"/>
+        <more_productive rdf:resource="http://www.semanticweb.org/sasao/ontologies/2023/8/untitled-ontology-3#ryzen_9_5900x"/>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">57980</price>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
