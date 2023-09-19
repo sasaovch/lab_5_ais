@@ -242,23 +242,23 @@ create_pc_by_budget(Budget, Processor, Motherboard, Card) :-
 find_processor_motherboard(Proc, Motherboard, Balance) :- processors(Procs), find_max_processor_motherboard(Procs, Proc, Motherboard, Balance, 0).
 
 % Берем самую дорогую материнскую плату совместимую с процессор и с ценою не больше заданной
-find_max_processor_motherboard(Proc, Proc_Result, Motherboard, Budget, 1) :- Proc_Result = Proc.
+find_max_processor_motherboard(Proc, Proc_Result, _, _, 1) :- Proc_Result = Proc.
 find_max_processor_motherboard([X|T], Proc, Motherboard, Budget, 0) :- price(X, Price_p), Balance is Budget - Price_p, 
 (
     Balance >= 0 ->
         motherboards(Motherboards), filter_for_processor(X, Motherboards, Out), 
             (find_max_motherboard(Out, Motherboard, Balance, 0) -> 
-                price(Motherboard, Price_m), Q is Price_m + Price_p, (Q =< Budget -> Flag = 1, Tail = X; Flag = 0, Tail = T), write(Tail), find_max_processor_motherboard(Tail, Proc, Motherboard, Budget, Flag);
+                price(Motherboard, Price_m), Q is Price_m + Price_p, (Q =< Budget -> Flag = 1, Tail = X; Flag = 0, Tail = T), find_max_processor_motherboard(Tail, Proc, Motherboard, Budget, Flag);
                 find_max_processor_motherboard(T, Proc, Motherboard, Budget, 0)
             );    
         find_max_processor_motherboard(T, Proc, Motherboard, Budget, 0)
 ).
 
 % Берем самую дорогую материнскую плату совместимую с процессор и с ценою не больше заданной
-find_max_motherboard(M, Motherboard, Budget, 1) :- Motherboard = M.
+find_max_motherboard(M, Motherboard, _, 1) :- Motherboard = M.
 find_max_motherboard([M|T], Motherboard, Budget, 0) :- price(M, Price_m), (Price_m > Budget -> Tail = T, Flag = 0; Tail = M, Flag = 1), find_max_motherboard(Tail, Motherboard, Budget, Flag).
 
-find_max_processor(P, Processor, Budget, 1) :- Processor = P.
+find_max_processor(P, Processor, _, 1) :- Processor = P.
 find_max_processor([P|T], Processor, Budget, 0) :- price(P, Price_p), (Price_p > Budget -> Tail = T, Flag = 0; Tail = P, Flag = 1), find_max_processor(Tail, Processor, Budget, Flag).
 
 % Support functions
@@ -285,6 +285,5 @@ min_by_price([Head|Tail], Minimum) :-
     (F =< S -> Minimum = TailMin; Minimum = Head).
 
 are_greater(X, Y) :- price(Y, W), X < W.
-writeln(X) :- write(X), nl.
 equals(X, Y) :- X == Y.
 not_equals(X, Y) :- X \= Y.

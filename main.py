@@ -1,7 +1,7 @@
 from pyswip import Prolog
 import re 
 
-path = 're.pl'
+path = 'prolog.pl'
 incorrect_request = 'Неправильный запрос'
 special_line = "-----------"
 
