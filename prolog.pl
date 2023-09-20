@@ -311,5 +311,5 @@ not_equals(X, Y) :- X \= Y.
 
 sort_by_price([],[]).
 sort_by_price([Head|Tail], ListSorted) :- sort_by_price(Tail, TailSorted), insrt(Head, TailSorted, ListSorted).
-insrt(X, [Y | ListSorted], [Y | ListSorted1]) :- price(X, Pr_x), price(Y, Pr_y), Pr_x > Pr_y, !, insrt(X, ListSorted, ListSorted1).
+insrt(X, [Y | ListSorted], [Y | ListSorted1]) :- price(X, Pr_x), price(Y, Pr_y), Pr_x < Pr_y, !, insrt(X, ListSorted, ListSorted1).
 insrt(X, ListSorted, [X | ListSorted]).
