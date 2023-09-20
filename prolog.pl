@@ -3,7 +3,7 @@
     price/2, motherboard/1,
     motherboard_with_ram/2, price/2, is_not_compatible_processor_motherboard/2,
     equals/2, check_budget/3, calculate_budget/2,
-    are_greater/2, filter_list_by_price/3, take_element_by_price/3,
+    are_greater/2, filter_list_by_price/3, take_max_element_by_price/3,
     min_by_price/2, are_greater_p/2, filter_for_processor/3, filterList_p/3,
     find_max_motherboard/4, minl_m/2, minl_p/2, find_min/5.
 
@@ -202,9 +202,9 @@ get_processors_for_motherboard(Motherboard, Processor) :- socket(Motherboard, So
 
 get_motherboard_for_processor(Processor, Motherboard) :- get_processors_for_motherboard(Motherboard, Processor), processor(Processor), motherboard(Motherboard).
 
-find_best_motherboard_by_budget(Budget) :- motherboards(Motherboards), find_max_motherboard(Motherboards, Motherboard, Budget, 0), write(Motherboard).
+find_best_motherboard_by_budget(Budget) :- motherboards(Motherboards), filter_list_by_price(Budget, Motherboards, Out), max_by_price(Out, Motherboard), write(Motherboard).
 
-find_best_processor_by_budget(Budget) :- processors(Processors), find_max_processor(Processors, Processor, Budget, 0), write(Processor).
+find_best_processor_by_budget(Budget) :- processors(Processors), filter_list_by_price(Budget, Processors, Out), max_by_price(Out, Processor), write(Processor).
 
 check_budget(Processor, Motherboard, Budget) :- (is_not_compatible_processor_motherboard(Processor, Motherboard) ->
             write('Процессор не совместим в материнской платой'), false;
@@ -223,31 +223,45 @@ create_pc_by_budget(Budget) :-
             (Budget > 0 -> true; false),
             % Считаем, что видеокарта должна стоить не больше половины бюджета
             Split_pr is Budget // 2, 
-            graphics_cards(Cards), take_element_by_price(Cards, Split_pr, Card), 
-            write('Card = '), writeln(Card),
+            graphics_cards(Cards), 
+            (take_max_element_by_price(Cards, Split_pr, Card) ->
+                write('Card = '), writeln(Card),
 
-            price(Card, Price_c), Balance is Budget - Price_c,
-            find_processor_motherboard(Proc, Motherboard, Balance), 
+                price(Card, Price_c), Balance is Budget - Price_c,
+                find_processor_motherboard(Proc, Motherboard, Balance), 
 
-            write('Processor = '), writeln(Proc), 
-            write('Motherboard = '), writeln(Motherboard).
+                write('Processor = '), writeln(Proc), 
+                write('Motherboard = '), writeln(Motherboard);
+                
+                % Если нельзя взять видеокарту ценой половины бюджета, то возьмем самую дешевую
+                min_by_price(Cards, Card), write('Card = '), writeln(Card), 
+                price(Card, Price_c), Balance is Budget - Price_c,
+                find_processor_motherboard(Proc, Motherboard, Balance),
+                write('Processor = '), writeln(Proc), 
+                write('Motherboard = '), writeln(Motherboard)
+            ).
 
 create_pc_by_budget(Budget, Processor, Motherboard, Card) :- 
             (Budget > 0 -> true; false),
             Split_pr is Budget // 2, 
-            graphics_cards(Cards), take_element_by_price(Cards, Split_pr, Card),  
-            price(Card, Price_c), Balance is Budget - Price_c,
-            find_processor_motherboard(Processor, Motherboard, Balance).
+            graphics_cards(Cards), 
+            (take_max_element_by_price(Cards, Split_pr, Card) ->  
+                price(Card, Price_c), Balance is Budget - Price_c,
+                find_processor_motherboard(Processor, Motherboard, Balance);
+                % Если нельзя взять видеокарту ценой половины бюджета, то возьмем самую дешевую
+                min_by_price(Cards, Card), price(Card, Price_c), Balance is Budget - Price_c,
+                find_processor_motherboard(Processor, Motherboard, Balance)
+            ).
 
-find_processor_motherboard(Proc, Motherboard, Balance) :- processors(Procs), find_max_processor_motherboard(Procs, Proc, Motherboard, Balance, 0).
+find_processor_motherboard(Proc, Motherboard, Balance) :- processors(Procs), sort_by_price(Procs, SortProcs), find_max_processor_motherboard(SortProcs, Proc, Motherboard, Balance, 0).
 
 % Берем самую дорогую материнскую плату совместимую с процессор и с ценою не больше заданной
 find_max_processor_motherboard(Proc, Proc_Result, _, _, 1) :- Proc_Result = Proc.
 find_max_processor_motherboard([X|T], Proc, Motherboard, Budget, 0) :- price(X, Price_p), Balance is Budget - Price_p, 
 (
     Balance >= 0 ->
-        motherboards(Motherboards), filter_for_processor(X, Motherboards, Out), 
-            (find_max_motherboard(Out, Motherboard, Balance, 0) -> 
+        motherboards(Motherboards), filter_for_processor(X, Motherboards, Out), sort_by_price(Out, SortMoth),
+            (find_max_motherboard(SortMoth, Motherboard, Balance, 0) -> 
                 price(Motherboard, Price_m), Q is Price_m + Price_p, (Q =< Budget -> Flag = 1, Tail = X; Flag = 0, Tail = T), find_max_processor_motherboard(Tail, Proc, Motherboard, Budget, Flag);
                 find_max_processor_motherboard(T, Proc, Motherboard, Budget, 0)
             );    
@@ -263,7 +277,7 @@ find_max_processor([P|T], Processor, Budget, 0) :- price(P, Price_p), (Price_p >
 
 % Support functions
 
-take_element_by_price(In, Price, Y) :- filter_list_by_price(Price, In, Out), min_by_price(Out, Y).
+take_max_element_by_price(In, Price, Y) :- filter_list_by_price(Price, In, Out), max_by_price(Out, Y).
 
 write_a_list([]).
 write_a_list([H | T]) :-
@@ -277,13 +291,25 @@ filter_for_processor(A, In, Out) :-
 filter_list_by_price(A, In, Out) :-
     exclude(are_greater(A), In, Out).
 
+max_by_price([Only], Only).
+max_by_price([Head|Tail], Maximum) :-
+    max_by_price(Tail, TailMax),
+    price(Head, F),
+    price(TailMax, S),
+    (F >= S -> Maximum = Head; Maximum = TailMax).
+
 min_by_price([Only], Only).
 min_by_price([Head|Tail], Minimum) :-
     min_by_price(Tail, TailMin),
     price(Head, F),
     price(TailMin, S),
-    (F =< S -> Minimum = TailMin; Minimum = Head).
+    (F =< S -> Minimum = Head; Minimum = TailMin).
 
 are_greater(X, Y) :- price(Y, W), X < W.
 equals(X, Y) :- X == Y.
 not_equals(X, Y) :- X \= Y.
+
+sort_by_price([],[]).
+sort_by_price([Head|Tail], ListSorted) :- sort_by_price(Tail, TailSorted), insrt(Head, TailSorted, ListSorted).
+insrt(X, [Y | ListSorted], [Y | ListSorted1]) :- price(X, Pr_x), price(Y, Pr_y), Pr_x > Pr_y, !, insrt(X, ListSorted, ListSorted1).
+insrt(X, ListSorted, [X | ListSorted]).
